@@ -1,6 +1,7 @@
 <?php
 include 'function.php';
 include 'connection.php';
+    session_status();
 
 if(isset($_POST["login"]))
 {
@@ -12,6 +13,9 @@ if(isset($_POST["login"]))
     $run = mysqli_query($con,$query);
 
 if(mysqli_num_rows($run) > 0) {
+  $row = mysqli_fetch_assoc($run);
+  $_SESSION["user_id"] = $row["Id"];
+  $_SESSION["role"] = $row["role"];
 echo "login succsse";
     header("location: index.php");
     die;

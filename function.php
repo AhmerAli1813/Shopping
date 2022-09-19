@@ -1,5 +1,14 @@
 <?php
+error_reporting(0);
+session_start();
 function myheaders(){
+    
+    if(isset($_SESSION["user_id"])){
+    $link_html = "";
+    $link_html = "<a href='logout.php'>logout</a>";
+    }else{
+        $link_html = "<a href='login.php'>login</a> <a href='sign.php'>sign in</a>  ";
+    }
     echo '
     <!DOCTYPE html>
 <html lang="zxx">
@@ -42,8 +51,7 @@ function myheaders(){
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="">Sign in</a>
-                                <a href="login.php">login</a>
+                                '. $link_html .'
                             </div>
                             <div class="header__top__hover">
                                 <span>Usd <i class="arrow_carrot-down"></i></span>

@@ -1,4 +1,8 @@
-<?php  function admin_header(){
+<?php  
+session_start();
+    
+
+function admin_header(){
     echo '<!DOCTYPE html>
     <html lang="en">
     
