@@ -3,6 +3,9 @@ session_start();
     
 
 function admin_header(){
+    if(!isset($_SESSION["role"]) == 1 ){
+header("location: ../login.php");
+    };
     echo '<!DOCTYPE html>
     <html lang="en">
     
